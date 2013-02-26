@@ -1,0 +1,7 @@
+                                =Log=
+2013-02-19 21:32
+安装了minicom和dnw2
+{{{
+yaourt minicom
+yaourt dnw
+}}}

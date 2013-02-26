@@ -1,0 +1,78 @@
+                            =Installation Guide=
+1. 如何设置时间？
+
+参考：[[https://wiki.archlinux.org/index.php/Time|archlinux wiki: Time]]
+
+* 时区设置：查看/usr/share/zoneinfo/<Zone>/<SubZone>目录，可以找到你所属的时区和子时区。通过创建一个符号链接/etc/localtime,链接到需要设置的时区的路径,来进行时区的设置。如一下命令将时区设置为亚洲::上海：
+
+    #ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+* 硬件时钟:Windows中默认使用本地时间。硬件时钟使用UTC时间不表示软件会显示UTC时间。推荐将Arch和Windows都设置为使用UTC时间。同时要禁止Windows通过网络同步时间，因为会将硬件时钟重新设置为使用本地时间。
+
+    #hwclock --systohc --utc            ##将硬件时钟设置成使用UTC时间
+
+* 将Windows设置成使用UTC时间作为硬件时钟：
+    # 方法一：regedit命令编辑注册表，将键值`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation\RealTimeIsUniversal`设置为十六进制的1。
+    # 方法二：创建一个*.reg文件，输入如下内容，然后双击导入注册表即可：
+{{{
+
+##注释：适用于Vista SP2 以前的版本。
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation]
+"RealTimeIsUniversal"=dword:00000001
+
+##注释：适用于windows7.
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"LocalAccountTokenFilterPolicy"=dword:00000001
+
+}}}
+
+2. 啥是夏令时？
+
+3. 如何自动挂载硬盘分区？
+
+系统启动过程中，会读取`/etc/fstab`文件来自动挂载分区。
+
+用命令`lsblk -f`来查看分区的UUID/LABEL/分区格式。
+
+
+
+4. bt下载工具：ktorrent
+
+5. 图片查看器:feh
+
+查看目录下的所有图片：
+
+{{{
+feh /path/to/directory
+}}}
+
+如何在Dophin中自动调用feh打开图片？
+
+6. 纠结的r8168！！！
+{{{
+[zechen11@zarch ~]$ dmesg | grep eth
+[    7.780720] eth%d: RTL8168E/8111E at 0xf92d6000, 10:60:4b:5b:18:0f, IRQ 43
+[    7.932219] eth0: Identified chip type is 'RTL8168E/8111E'.
+[    8.003990] systemd-udevd[161]: renamed network interface eth0 to enp3s0
+
+[zechen11@zarch ~]$ lspci -k | grep Realtek
+03:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168B PCI Express Gigabit Ethernet controller (rev 06)
+[zechen11@zarch ~]$ ip link set enp3s0 up
+[zechen11@zarch ~]$ dhcpcd
+}}}
+
+待阅：https://bbs.archlinux.org/viewtopic.php?pid=1220587
+
+7. 将默认shell改为zsh
+首先确保/etc/shells中有zsh的路径，没有则添加如下行：
+{{{
+/bin/zsh
+}}}
+然后使用`chsh`命令修改默认shell
+{{{
+chsh -s $(which zsh)
+}}}

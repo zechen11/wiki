@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../style.css">
+<title>Installation_Guide</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<h1 id="toc_1" class="justcenter">Installation Guide</h1>
+<p>
+1. 如何设置时间？
+</p>
+
+<p>
+参考：<a href="https://wiki.archlinux.org/index.php/Time">archlinux wiki: Time</a>
+</p>
+<ul>
+<li>
+时区设置：查看/usr/share/zoneinfo/&lt;Zone&gt;/&lt;SubZone&gt;目录，可以找到你所属的时区和子时区。通过创建一个符号链接/etc/localtime,链接到需要设置的时区的路径,来进行时区的设置。如一下命令将时区设置为亚洲::上海：
+
+</ul>
+<blockquote>
+#ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+</blockquote>
+
+<ul>
+<li>
+硬件时钟:Windows中默认使用本地时间。硬件时钟使用UTC时间不表示软件会显示UTC时间。推荐将Arch和Windows都设置为使用UTC时间。同时要禁止Windows通过网络同步时间，因为会将硬件时钟重新设置为使用本地时间。
+
+</ul>
+<blockquote>
+#hwclock --systohc --utc            ##将硬件时钟设置成使用UTC时间
+</blockquote>
+
+<ul>
+<li>
+将Windows设置成使用UTC时间作为硬件时钟：
+
+<ol>
+<li>
+方法一：regedit命令编辑注册表，将键值<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation\RealTimeIsUniversal</code>设置为十六进制的1。
+
+<li>
+方法二：创建一个*.reg文件，输入如下内容，然后双击导入注册表即可：
+<pre>
+
+##注释：适用于Vista SP2 以前的版本。
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation]
+"RealTimeIsUniversal"=dword:00000001
+
+##注释：适用于windows7.
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"LocalAccountTokenFilterPolicy"=dword:00000001
+
+</pre>
+
+</ol>
+</ul>
+
+<p>
+2. 啥是夏令时？
+</p>
+
+<p>
+3. 如何自动挂载硬盘分区？
+</p>
+
+</body>
+</html>

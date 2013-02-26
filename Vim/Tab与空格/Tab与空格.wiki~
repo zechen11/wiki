@@ -1,0 +1,7 @@
+=Tab与空格=
+
+1. shiftwidth
+2. tabstop
+3. softtabstop
+4. epandtab
+5. vim中用空格替换Tab之后，可以用C-v Tab的方法输入一个Tab键，而不是换成若干个空格。

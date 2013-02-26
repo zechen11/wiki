@@ -1,0 +1,18 @@
+                                =Beginner's Guide=
+
+1.如何将某些文件添加到代码库中？
+
+git add ./path/to/your/wanted
+
+添加所有未跟踪文件：
+
+git add -A
+
+添加所有未未跟踪文件并且提交：
+
+git commit -a
+
+2.如何将某些文件从代码库中删除？
+
+git rm ./path/to/your/wanted
+
