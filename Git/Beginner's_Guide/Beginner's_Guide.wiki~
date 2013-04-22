@@ -15,3 +15,18 @@ git commit -a
 2.如何将某些文件从代码库中删除？
 
 git rm ./path/to/your/wanted
+
+Create a new repository on the command line
+
+touch README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/zechen11/wiki.git
+git push -u origin master
+
+Push an existing repository from the command line
+
+git remote add origin https://github.com/zechen11/wiki.git
+git push -u origin master
+

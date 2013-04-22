@@ -5,9 +5,15 @@ _笔记的目的是让自己能够快速回忆起自己曾经掌握的知识，�
 
 [[Archlinux/Installation_Guide/Installation_Guide|1. Installation Guide]]
 
+[[Archlinux/Predictable_Network_Interface_Names/Predictable_Network_Interface_Names|2. Predictable_Network_Interface_Names]]
+
+[[Archlinux/Linux_Kernel_Config/Linux_Kernel_Config|3. Linux Kernel Config]]
+
 ==Vim==
 
 [[Vim/Tab与空格/Tab与空格|1. Tab与空格]]
+
+[[Vim/vimwiki/vimwiki|2. vimwiki]]
 
 ==Git==
 
@@ -23,4 +29,8 @@ _笔记的目的是让自己能够快速回忆起自己曾经掌握的知识，�
 
 
 ==Mini2440==
+
 [[Mini2440/Log/Log|1. Log]]
+
+==Hardwork==
+

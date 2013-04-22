@@ -1,0 +1,2 @@
+                                =vimwiki=
+1. 为什么http://cgit.freedesktop.org/systemd/systemd/tree/src/udev/udev-builtin-net_id.c#n20 转成html变成了http://cgit.freedesktop.org/systemd/systemd/tree/src/udev/udev-builtin-net_id.c/#n20 `#`之前多了一个`/`

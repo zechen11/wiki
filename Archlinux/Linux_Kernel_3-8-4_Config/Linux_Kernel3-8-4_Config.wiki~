@@ -1,0 +1,4 @@
+                            =Linux Kernel 3.8.4 Config=
+Linux/i386 3.8.4 Kernel Configuration
+使用箭头键操纵菜单.<Enter>进入子菜单 --->。高亮字幕是热键。按<Y>键选中，<N>取消选中，<M>键修改特性。按<Esc><Esc>退出，<?>帮助，</>查找。
+说明：[*] 表示内建，即编译进内核。 [ ] 表示取消选中，即不使用该特性。 <M> 表示编译成模块。 < > module capable( 什么意思？）。

@@ -12,4 +12,4 @@ yaourt dnw
 {{{
 sudo minicom -s
 }}}
-进入`Serial port setup`项->将`Serial Device`设置成`/dev/ttyUSB0`（因为我用的是串口转USB，这个可以用命令`dmesg`和`ls -l /dev/ttyUSB*`来查看），再将`Hardware Flow Control`项设置未`No`->`Save setup as dfl`。
+进入`Serial port setup`项->将`Serial Device`设置成`/dev/ttyUSB0`（因为我用的是串口转USB，这个可以用命令`dmesg`和`ls -l /dev/ttyUSB*`来查看），再将`Hardware Flow Control`项设置未`No`->`Save setup as dfl`
