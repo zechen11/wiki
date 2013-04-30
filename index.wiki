@@ -9,6 +9,10 @@ _笔记的目的是让自己能够快速回忆起自己曾经掌握的知识，�
 
 [[Archlinux/Linux_Kernel_3-8-4_Config/Linux_Kernel3-8-4_Config|3. Linux Kernel_3-8-4 Config]]
 
+==Linux Kernel==
+
+[[linux_kernel/init-main/init-main|1.init-main]]
+
 ==Vim==
 
 [[Vim/Tab与空格/Tab与空格|1. Tab与空格]]

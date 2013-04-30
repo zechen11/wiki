@@ -1,0 +1,32 @@
+                                  =init/main.c=
+1. bool early_boot_irqs_disabled __read_mostly;
+bool: 在include/linux/types.h中有如下定义：
+`typedef _Bool bool;`
+从C99标准开始，C语言有了布尔型，类型名字为`_Bool`。_Bool类型长度为1，只能取值为0或1。将任意非零值赋给_Bool类型，都会先转换为1，表示真。将零值赋给_Bool类型，结果为0，表示假。
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){  
+    _Bool a = 1;  
+    _Bool b = 2;    /* 使用非零值，b的值为1 */   
+    _Bool c = 0;  
+    _Bool d = -1;   /* 使用非零值，d的值为1 */   
+      
+    printf("a==%d,  \n", a);  
+    printf("b==%d,  \n", b);  
+    printf("c==%d,  \n", c);  
+    printf("d==%d,  \n", d);  
+  
+    printf("sizeof(_Bool) == %d  \n", sizeof(_Bool));  
+      
+    system("pause");  
+    return EXIT_SUCCESS;  
+}  
+运行结果如下：
+a==1,  
+b==1,  
+c==0,  
+d==1,  
+sizeof(_Bool) == 1  
+
+__read_mostly: 在
