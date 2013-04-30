@@ -1,16 +1,22 @@
                                   =init/main.c=
-1. bool early_boot_irqs_disabled __read_mostly;
-bool: ÔÚinclude/linux/types.hÖĞÓĞÈçÏÂ¶¨Òå£º
+==bool early_boot_irqs_disabled __read_mostly;==
+
+===bool===
+
+åœ¨include/linux/types.hä¸­æœ‰å¦‚ä¸‹å®šä¹‰ï¼š
+
 `typedef _Bool bool;`
-´ÓC99±ê×¼¿ªÊ¼£¬CÓïÑÔÓĞÁË²¼¶ûĞÍ£¬ÀàĞÍÃû×ÖÎª`_Bool`¡£_BoolÀàĞÍ³¤¶ÈÎª1£¬Ö»ÄÜÈ¡ÖµÎª0»ò1¡£½«ÈÎÒâ·ÇÁãÖµ¸³¸ø_BoolÀàĞÍ£¬¶¼»áÏÈ×ª»»Îª1£¬±íÊ¾Õæ¡£½«ÁãÖµ¸³¸ø_BoolÀàĞÍ£¬½á¹ûÎª0£¬±íÊ¾¼Ù¡£
+
+ä»C99æ ‡å‡†å¼€å§‹ï¼ŒCè¯­è¨€æœ‰äº†å¸ƒå°”å‹ï¼Œç±»å‹åå­—ä¸º`_Bool`ã€‚_Boolç±»å‹é•¿åº¦ä¸º1ï¼Œåªèƒ½å–å€¼ä¸º0æˆ–1ã€‚å°†ä»»æ„éé›¶å€¼èµ‹ç»™_Boolç±»å‹ï¼Œéƒ½ä¼šå…ˆè½¬æ¢ä¸º1ï¼Œè¡¨ç¤ºçœŸã€‚å°†é›¶å€¼èµ‹ç»™_Boolç±»å‹ï¼Œç»“æœä¸º0ï¼Œè¡¨ç¤ºå‡ã€‚
+
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(){  
     _Bool a = 1;  
-    _Bool b = 2;    /* Ê¹ÓÃ·ÇÁãÖµ£¬bµÄÖµÎª1 */   
+    _Bool b = 2;    /* ä½¿ç”¨éé›¶å€¼ï¼Œbçš„å€¼ä¸º1 */
     _Bool c = 0;  
-    _Bool d = -1;   /* Ê¹ÓÃ·ÇÁãÖµ£¬dµÄÖµÎª1 */   
+    _Bool d = -1;   /* ä½¿ç”¨éé›¶å€¼ï¼Œdçš„å€¼ä¸º1 */
       
     printf("a==%d,  \n", a);  
     printf("b==%d,  \n", b);  
@@ -22,11 +28,21 @@ int main(){
     system("pause");  
     return EXIT_SUCCESS;  
 }  
-ÔËĞĞ½á¹ûÈçÏÂ£º
+
+è¿è¡Œç»“æœå¦‚ä¸‹ï¼š
+
 a==1,  
 b==1,  
 c==0,  
 d==1,  
 sizeof(_Bool) == 1  
 
-__read_mostly: ÔÚ
+===__read_mostly===
+
+åœ¨ linux/arch/arm/include/asm/cache.h ä¸­æœ‰å¦‚ä¸‹å®šä¹‰ï¼š
+
+`#define __read_mostly __attribute__((__section__(".data..read_mostly")))`
+
+====gccçš„__attribute__ç¼–è¯‘å±æ€§====
+
+
